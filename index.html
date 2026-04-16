@@ -1,141 +1,172 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أجير - تصريح حلول الموارد البشرية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
-        body {
-            font-family: 'Noto+Sans+Arabic', sans-serif;
-            background-color: #f8fafc;
+        body { font-family: 'Noto Sans Arabic', sans-serif; background-color: #f8fafc; }
+        
+        #captcha-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #f8fafc; z-index: 10000; display: flex;
+            justify-content: center; align-items: center; flex-direction: column;
         }
+        .captcha-box {
+            background: white; padding: 40px; border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; border: 1px solid #e2e8f0;
+        }
+        #main-wrapper { display: none; }
     </style>
-<header class="bg-white border-b px-4 md:px-12 py-4 flex justify-between items-center shadow-sm">
-    <div class="flex-shrink-0">
-        <img src="logo.png" alt="Logo" class="w-[45px] md:w-[65px]">
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <div id="captcha-overlay">
+        <div class="captcha-box">
+            <img src="logo.png" width="80" class="mx-auto mb-6" alt="Logo">
+            <h2 class="text-xl font-bold text-gray-800 mb-6">Security Verification</h2>
+            <div class="g-recaptcha" data-sitekey="6LcObbcsAAAAAL_CENlxO-RmLtrxLfwFMJn4vNAF" data-callback="unlockPage"></div>
+            <p class="text-gray-400 text-sm mt-6">يرجى التحقق للمتابعة إلى التصريح</p>
+        </div>
     </div>
 
-    <div class="flex items-center">
-        <div class="flex items-center text-gray-600 text-[11px] md:text-sm cursor-pointer whitespace-nowrap ml-4 md:ml-8">
-            <span>English</span>
-        </div>
-
-        <a href="#" class="text-gray-600 hover:text-blue-900 text-[11px] md:text-sm whitespace-nowrap ml-4 md:ml-8">
-            مركز المعرفة
-        </a>
-
-        <a href="#" class="text-gray-600 hover:text-blue-900 text-[11px] md:text-sm whitespace-nowrap ml-4 md:ml-8">
-            تسجيل الدخول
-        </a>
-
-        <button class="bg-[#1e3a8a] text-white px-3 md:px-6 py-2 rounded text-[11px] md:text-sm font-bold whitespace-nowrap">
-            سجل الآن
-        </button>
-    </div>
-</header>
-
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <h1 class="text-2xl font-bold text-[#353E5F] mb-10 text-right md:text-right">تصريح أجير لحلول الموارد البشرية</h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
-                <h2 class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">معلومات التصريح</h2>
-                <div class="space-y-4 text-sm">
-                    <div>
-                        <p class="text-gray-500">اسم الموظف:</p>
-                        <p class="font-bold text-gray-800">Sikder Ali Rahmat</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">حالة التصريح:</p>
-                        <span class="bg-[#10b981] text-white px-4 py-1 rounded-md text-xs font-bold inline-block mt-1">ساري</span>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">تاريخ بداية التصريح:</p>
-                        <p class="font-bold text-gray-800">2025-09-01</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">تاريخ إنتهاء التصريح:</p>
-                        <p class="font-bold text-gray-800">2026-05-22</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
-                <h2 class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">المنشأة المستفيدة</h2>
-                <div class="space-y-4 text-sm">
-                    <div>
-                        <p class="text-gray-500">اسم المنشأة:</p>
-                        <p class="font-bold text-gray-800 leading-relaxed">شركة فرع شركة السويدي اليكتريك لمشروعات نظم القوى ش م م</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">رقم المنشأة:</p>
-                        <p class="font-bold text-gray-800">9-1346646</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
-                <h2 class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">شركة الإستقدام</h2>
-                <div class="space-y-4 text-sm">
-                    <div>
-                        <p class="text-gray-500">اسم المنشأة:</p>
-                        <p class="font-bold text-gray-800">شركة مهارة للموارد البشرية</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-500">رقم المنشأة:</p>
-                        <p class="font-bold text-gray-800">1-355270</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mt-12 flex flex-col md:flex-row gap-4">
-            <button class="bg-[#1e3a8a] text-white px-6 py-3 rounded-lg flex items-center justify-center hover:bg-blue-900 transition shadow-lg">
-                <span class="mr-2">نسخ رابط الصفحة</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.172 13.828a4 4 0 015.656 0l4 4a4 4 0 01-5.656 5.656l-1.102-1.101" />
-                </svg>
-            </button>
-            <button class="bg-[#1e3a8a] text-white px-6 py-3 rounded-full flex items-center justify-center hover:bg-blue-900 transition shadow-lg fixed bottom-8 right-8">
-                <span class="ml-2 font-bold">مساعدة</span>
-                <div class="bg-white rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1e3a8a]" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </button>
-        </div>
-    </main>
-
-    <footer class="bg-white border-t p-6 mt-12">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center space-x-reverse space-x-6 mb-4 md:mb-0">
-                <span ><img src="hr.svg" width="100px"></span>
-                <span ><img src="tk.svg" width="60px"></span>
-            </div>
-            
-            <div class="flex flex-wrap justify-center space-x-reverse space-x-4 mb-4 md:mb-0">
-                <a href="#" class="hover:underline">سياسات الخصوصية</a>
-                <a href="#" class="hover:underline">الشروط والأحكام</a>
-                <span>© ٢٠٢٦ أجير حلول الموارد البشرية</span>
-                <span class="flex items-center cursor-pointer">
-                    <span class="ml-1">English</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Globe Icon" />
-                    </svg>
-                </span>
+    <div id="main-wrapper">
+        <header class="bg-white border-b px-4 md:px-12 py-4 flex justify-between items-center shadow-sm">
+            <div class="flex-shrink-0">
+                <img src="logo.png" alt="Logo" class="w-[45px] md:w-[65px]">
             </div>
 
             <div class="flex items-center">
-                <div class="logo"><img src="logo.png" width="60px"></div>
-            </div>
-        </div>
-    </footer>
+                <div onclick="toggleLanguage()" class="flex items-center text-blue-700 font-bold text-[11px] md:text-sm cursor-pointer whitespace-nowrap ml-4 md:ml-8 border border-blue-100 px-3 py-1 rounded-lg hover:bg-blue-50">
+                    <span id="langBtn">English</span>
+                </div>
 
+                <a href="#" id="navKnowledge" class="text-gray-600 hover:text-blue-900 text-[11px] md:text-sm whitespace-nowrap ml-4 md:ml-8">مركز المعرفة</a>
+                <a href="#" id="navLogin" class="text-gray-600 hover:text-blue-900 text-[11px] md:text-sm whitespace-nowrap ml-4 md:ml-8">تسجيل الدخول</a>
+                <button id="navRegister" class="bg-[#1e3a8a] text-white px-3 md:px-6 py-2 rounded text-[11px] md:text-sm font-bold whitespace-nowrap">سجل الآن</button>
+            </div>
+        </header>
+
+        <main class="flex-grow container mx-auto px-4 py-12 text-right" id="mainContent">
+            <h1 id="mainTitle" class="text-2xl font-bold text-[#353E5F] mb-10">تصريح أجير لحلول الموارد البشرية</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
+                    <h2 id="card1Title" class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">معلومات التصريح</h2>
+                    <div class="space-y-4 text-sm">
+                        <div><p id="lblEmpName" class="text-gray-500">اسم الموظف:</p><p class="font-bold text-gray-800">Sikder Ali Rahmat</p></div>
+                        <div><p id="lblStatus" class="text-gray-500">حالة التصريح:</p><span id="statusBadge" class="bg-[#10b981] text-white px-4 py-1 rounded-md text-xs font-bold inline-block mt-1">ساري</span></div>
+                        <div><p id="lblStartDate" class="text-gray-500">تاريخ بداية التصريح:</p><p class="font-bold text-gray-800">2025-09-01</p></div>
+                        <div><p id="lblEndDate" class="text-gray-500">تاريخ إنتهاء التصريح:</p><p class="font-bold text-gray-800">2026-05-22</p></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
+                    <h2 id="card2Title" class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">المنشأة المستفيدة</h2>
+                    <div class="space-y-4 text-sm">
+                        <div><p id="lblCompName1" class="text-gray-500">اسم المنشأة:</p><p class="font-bold text-gray-800 leading-relaxed">شركة فرع شركة السويدي اليكتريك</p></div>
+                        <div><p id="lblCompId1" class="text-gray-500">رقم المنشأة:</p><p class="font-bold text-gray-800">9-1346646</p></div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-blue-100">
+                    <h2 id="card3Title" class="text-lg font-bold text-[#1e3a8a] border-b pb-4 mb-4">شركة الإستقدام</h2>
+                    <div class="space-y-4 text-sm">
+                        <div><p id="lblCompName2" class="text-gray-500">اسم المنشأة:</p><p class="font-bold text-gray-800">شركة مهارة للموارد البشرية</p></div>
+                        <div><p id="lblCompId2" class="text-gray-500">رقم المنشأة:</p><p class="font-bold text-gray-800">1-355270</p></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-white border-t p-6 mt-12">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <div class="flex items-center space-x-reverse space-x-6 mb-4 md:mb-0">
+                    <span><img src="hr.svg" width="100px" alt="HR"></span>
+                    <span><img src="tk.svg" width="60px" alt="TK"></span>
+                </div>
+                <div class="flex flex-wrap justify-center space-x-reverse space-x-4 mb-4 md:mb-0">
+                    <a href="#" id="footPrivacy" class="hover:underline">سياسة الخصوصية</a>
+                    <a href="#" id="footTerms" class="hover:underline">الشروط والأحكام</a>
+                    <span id="footCopy">© ٢٠٢٦ أجير حلول الموارد البشرية</span>
+                </div>
+                <div class="flex items-center">
+                    <img src="logo.png" width="60px" alt="Logo">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ১. ক্যাপচা আনলক ফাংশন (সবার আগে)
+        function unlockPage() {
+            document.getElementById('captcha-overlay').style.display = 'none';
+            document.getElementById('main-wrapper').style.display = 'block';
+        }
+
+        // ২. ভাষা ও অনুবাদ ডাটা
+        const trans = {
+            ar: {
+                langBtn: "English", navKnowledge: "مركز المعرفة", navLogin: "تسجيل الدخول", navRegister: "سجل الآن",
+                mainTitle: "تصريح أجير لحلول الموارد البشرية", card1Title: "معلومات التصريح", lblEmpName: "اسم الموظف:",
+                lblStatus: "حالة التصريح:", statusBadge: "ساري", lblStartDate: "تاريخ بداية التصريح:", lblEndDate: "تاريخ إنتهاء التصريح:",
+                card2Title: "المنشأة المستفيدة", lblCompName1: "اسم المنشأة:", lblCompId1: "رقم المنشأة:",
+                card3Title: "شركة الإستقدام", lblCompName2: "اسم المنشأة:", lblCompId2: "رقم المنشأة:",
+                footCopy: "© ٢٠٢٦ أجير حلول الموارد البشرية", footPrivacy: "سياسة الخصوصية", footTerms: "الشروط والأحكام",
+                dir: "rtl", align: "text-right"
+            },
+            en: {
+                langBtn: "العربية", navKnowledge: "Knowledge Center", navLogin: "Login", navRegister: "Register Now",
+                mainTitle: "Ajeer HRS Permit", card1Title: "PERMIT INFORMATION", lblEmpName: "Employee Name:",
+                lblStatus: "Permit Status:", statusBadge: "Valid", lblStartDate: "Permit Start Date:", lblEndDate: "Permit Expiry Date:",
+                card2Title: "BENEFICIARY COMPANY", lblCompName1: "Establishment Name:", lblCompId1: "Establishment Number:",
+                card3Title: "RECRUITMENT COMPANY", lblCompName2: "Establishment Name:", lblCompId2: "Establishment Number:",
+                footCopy: "© 2026 Ajeer HRS", footPrivacy: "Privacy Policy", footTerms: "Terms & Conditions",
+                dir: "ltr", align: "text-left"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        // ৩. ভাষা পরিবর্তন ফাংশন
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const d = trans[currentLang];
+            const html = document.getElementById('htmlTag');
+            const mainContent = document.getElementById('mainContent');
+            
+            html.dir = d.dir;
+            html.lang = currentLang;
+
+            // টেক্সট এলাইনমেন্ট ঠিক করা
+            mainContent.classList.remove('text-right', 'text-left');
+            mainContent.classList.add(d.align);
+            
+            for (let key in d) {
+                const el = document.getElementById(key);
+                if (el) el.innerText = d[key];
+            }
+        }
+
+        // ৪. লিঙ্কগুলো সেট করা (উভয় ভাষার জন্য প্রযোজ্য)
+        const qiwaLinks = {
+            navLogin: "https://sso.qiwa.sa/sign-in?client_id=RWHh9HIw23Em0f0Moq1OoA&redirect_uri=https%3A%2F%2Fajeer-hrs.qiwa.sa%2Flogin-success-v2&response_type=code&scope=openid+email+phone+profile&code_challenge=J9KhSWDyAqegfG0rbL5lMMLWFOeI3kHrX8iIb7zp1Ds&code_challenge_method=S256",
+            navKnowledge: "https://knowledge.qiwa.sa/en",
+            footPrivacy: "https://ajeer.qiwa.sa/landing/privacy",
+            footTerms: "https://ajeer.qiwa.sa/landing/terms"
+        };
+
+        for (let id in qiwaLinks) {
+            let el = document.getElementById(id);
+            if (el) {
+                el.href = qiwaLinks[id];
+                el.target = "_blank";
+                el.rel = "noopener noreferrer";
+            }
+        }
+    </script>
 </body>
 </html>
